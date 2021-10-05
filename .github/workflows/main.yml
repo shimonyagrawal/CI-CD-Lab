@@ -34,3 +34,16 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+   # Installs Python 3.8
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      # Installs Postgres, Meltano, and Meltano plugins
+      - name: Install Meltano and project plugins
+        run: |
+          apt-get update && apt-get install libpq-dev
+          pipx install meltano
+          meltano instal
+
